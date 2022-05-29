@@ -16,7 +16,7 @@ public class Main {
         
         result = grafo.getDisjointedPaths(grafo.getPathStart(), grafo.getPathEnd());
 
-        System.out.println("Num Caminhos: "+result.getKey() + "\n caminhos: ");
+        System.out.println("Num Caminhos: "+result.getKey() + "\nCaminhos: ");
         for (ArrayList<Integer> p : result.getValue()) System.out.println(p);
     }
 }
