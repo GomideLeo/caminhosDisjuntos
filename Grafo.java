@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Grafo {
@@ -68,32 +67,6 @@ public class Grafo {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    /*
-     * Calculates the minimal distance between nodes
-     * 
-     * @return matrix [x][y] where:
-     * x -> fromNode
-     * y -> toNode
-     */
-    public int[][] getMinDistanceMatrix() {
-        int minPath[][] = this.edgesWeights.clone();
-
-        for (int k = 0; k < this.getNumNodes(); k++) {
-            for (int i = 0; i < this.getNumNodes(); i++) {
-                for (int j = 0; j < this.getNumNodes(); j++) {
-                    if (minPath[i][k] == Integer.MAX_VALUE ||
-                            minPath[k][j] == Integer.MAX_VALUE)
-                        minPath[i][j] = minPath[i][j];
-                    else if (minPath[i][j] == Integer.MAX_VALUE)
-                        minPath[i][j] = minPath[i][k] + minPath[k][j];
-                    else if (minPath[i][j] > minPath[i][k] + minPath[k][j])
-                        minPath[i][j] = minPath[i][k] + minPath[k][j];
-                }
-            }
-        }
-        return minPath;
     }
 
     public void setEdge(int fromNode, int toNode, int weight) {
@@ -186,41 +159,6 @@ public class Grafo {
         }
 
         return returnValue;
-    }
-
-    public int calculateExentricity(int node) {
-        PriorityQueue<ComparableTuple<Edge, Integer>> border = new PriorityQueue<ComparableTuple<Edge, Integer>>();
-        int dist[] = new int[numNodes];
-        int excentricity = 0;
-
-        for (int i = 0; i < numNodes; i++) {
-            dist[i] = Integer.MAX_VALUE;
-        }
-        dist[node] = 0;
-
-        for (Edge e : getAllEdgesFromNode(node)) {
-            border.add(new ComparableTuple<Edge, Integer>(e, e.weight));
-        }
-
-        while (!border.isEmpty()) {
-            ComparableTuple<Edge, Integer> tuple = border.remove();
-            Edge e = tuple.getKey();
-            int distance = tuple.getValue();
-
-            if (dist[e.to] == Integer.MAX_VALUE) {
-                dist[e.to] = distance;
-
-                for (Edge ed : getAllEdgesFromNode(e.to)) {
-                    border.add(new ComparableTuple<Edge, Integer>(ed, ed.weight + distance));
-                }
-            }
-        }
-
-        for (int i = 0; i < numNodes; i++) {
-            excentricity = dist[i] != Integer.MAX_VALUE && excentricity < dist[i] ? dist[i] : excentricity;
-        }
-
-        return excentricity;
     }
 
     public ArrayList<Integer> getReachableNodes(int start) {

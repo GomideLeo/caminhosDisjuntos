@@ -1,0 +1,97 @@
+\documentclass[a4paper,12pt,Times]{article}
+\usepackage{abakos}  %pacote com padrão da Abakos baseado no padrão da PUC
+\usepackage{csvsimple}
+\usepackage{svg}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Capa da revista
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{page}{80} %iniciar contador de pagina de valor especificado
+\newcommand{\monog}{Trabalho Prático 2}
+\newcommand{\monogES}{Model - Pratical Exercise - ICEI - Puc Minas}
+\newcommand{\tipo}{Artigo }  % Especificar a seção tipo do trabalho: Artigo, Resumo, Tese, Dociê etc
+\newcommand{\origem}{Brasil}
+\newcommand{\editorial}{\textbf{Puc Minas}, Belo Horizonte, Jun. 2022}  % p. xx-xx – páginas inicial-final do artigo
+% \newcommand{\lcc}{\scriptsize{Licença Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported}}
+
+%%%%%%%%%%%%%%%%%INFORMAÇÕES SOBRE AUTOR PRINCIPAL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\AutorA}{Davi Dias Magalhães}
+\newcommand{\emailA}{https://github.com/davidias3}
+\newcommand{\cursA}{Curso de Ciência da Computação PUC Minas}
+\newcommand{\AutorB}{Henrique Castro}
+\newcommand{\emailB}{https://github.com/HenriqueCastros}
+\newcommand{\cursB}{Curso de Ciência da Computação PUC Minas}
+\newcommand{\AutorC}{Leonardo Gomide}
+\newcommand{\emailC}{https://github.com/GomideLeo}
+\newcommand{\cursC}{Curso de Ciência da Computação PUC Minas}
+
+% Definir macros para o nome da Instituição, da Faculdade, etc.
+\newcommand{\univ}{Pontifícia Universidade Católica de Minas Gerais}
+
+\newcommand{\keyword}[1]{\textsf{#1}}
+\begin{document}
+
+
+\begin{flushleft}
+
+\begin{center}
+\includegraphics[scale=0.2]{figuras/brasao.jpg} \\
+PONTIFÍCIA UNIVERSIDADE CATÓLICA DE MINAS GERAIS \\
+Instituto de Ciências Exatas e de Informática
+
+ \vspace{1.0cm}
+
+\end{center}
+
+ \vspace{0cm} {
+\singlespacing \Large{\monog \symbolfootnote[1]{Artigo apresentado como documentação ao Instituto de Ciências Exatas e Informática da Pontifícia Universidade Católica de Minas Gerais para disciplina Teoria dos Grafos e Computabilidade.} \\ }
+  \normalsize{\monogES}
+ }
+\end{flushleft}
+\begin{flushright}
+\singlespacing 
+%\normalsize{\AutorA \footnote{\funcaoA \cursA, \origem -- \emailA }} \\
+\normalsize{\AutorB \footnote{\funcaoB \cursB, \origem -- \emailB }} \\
+\normalsize{\AutorC \footnote{\funcaoC \cursC, \origem -- \emailC }} \\
+
+\end{flushright}
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+Este exercício prático contem a documentação do Trabalho Prático 2, feita em \LaTeX. Em grafos simples, pode-se encontrar sequências de vértices que vão de um ponto a outro, essa sequência, quando não repete arcos, é denominada de caminho. Tendo isso em vista, um problema é encontrar o número de caminhos disjuntos de um grafo simples qualquer, sendo caminhos disjuntos aqueles que não possuem arestas em comum. Dessa forma este trabalho propõe uma forma de lidar de com esse problema, por meio de algoritmos conhecidos dentro da área de estudo de grafos.
+
+
+\\\textbf{\keyword{Palavras-chave: }}\LaTeX. Exercício Prático. Java.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+\selectlanguage{brazil}
+\onehalfspace  % espaçamento 1.5 entre linhas
+\setlength{\parindent}{1.25cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INICIO DO TEXTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{textos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FIM DO TEXTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \selectlanguage{brazil}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inicio bibliografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \newpage
+ \singlespace{
+ \bibliographystyle{abntex2-alf}
+ \bibliography{bibliografia}
+ \bibliographystyle{econ}
+\bibliography{Reference1}
+ }
+
+\end{document}
